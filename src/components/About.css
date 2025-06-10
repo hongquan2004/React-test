@@ -1,21 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
-.about, .about h2, .about p, .about-list {
+.about, .about h2, .about p {
   color: var(--about-text, #222);
 }
 .about {
-  background: #fff6fb;
-  border: 2.5px solid #f7c1e9;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px #f7c1e933;
-  color: #d16ba5;
-  margin: 48px auto 0 auto;
-  max-width: 700px;
-  padding: 32px 28px 24px 28px;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   transition: box-shadow 0.22s, border-color 0.22s;
+  background: #f7e6fa;
+  border: 2.5px solid #e0b3ff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #e0b3ff33;
 }
 .about h2 {
   color: #d16ba5;
@@ -27,87 +23,38 @@
 }
 .about-list {
   margin-top: 1.2rem;
-  padding-left: 1.2rem;
+  padding-left: 0;
+  list-style: none;
 }
 .about-list li {
   margin-bottom: 0.5rem;
   font-size: 1.08rem;
   color: #d16ba5;
-  margin-bottom: 0.5em;
   font-family: 'Quicksand', sans-serif;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 .ceramic-app.dark .about {
-  background: linear-gradient(120deg, #23272f 80%, #3a3d4d 100%) !important;
-  color: #ffe9b0;
+  background: linear-gradient(120deg, #2a223a 80%, #3a2d4d 100%) !important;
+  color: #ffe6fa;
   box-shadow: 0 4px 24px #23272f55;
-  border: 2.5px solid #ffd36b;
-  box-shadow: 0 8px 36px 0 #000a  , 0 2px 0 #ffd36bcc;
+  border: 2.5px solid #e0b3ff;
 }
 .ceramic-app.dark .about h2 {
-  color: #ffd36b;
+  color: #ffb3e6;
 }
 .ceramic-app.dark .about-list li {
-  color: #ffe9b0;
+  color: #ffe6fa;
 }
 .ceramic-app.dark .about p {
-  color: #ffe9b0;
-}
-.about::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  pointer-events: none;
-  box-shadow: 0 1.5px 16px 0 #ffd36b33 inset;
-  opacity: 0.18;
-}
-
-.contact, .contact h2, .contact-list, .contact-item, .contact-icon {
-  color: var(--contact-text, #222);
-}
-.contact {
-  background: #fff6fb;
-  border: 2.5px solid #f7c1e9;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px #f7c1e933;
-  color: #d16ba5;
-  margin: 48px auto 0 auto;
-  max-width: 700px;
-  padding: 32px 28px 24px 28px;
-  text-align: center;
-  font-family: 'Quicksand', sans-serif;
-  transition: box-shadow 0.22s, border-color 0.22s;
-}
-.contact h2 {
-  color: #d16ba5;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.7rem;
-  margin-bottom: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-.contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: 1.13rem;
-}
-.contact-icon {
-  font-size: 1.5rem;
-  color: #d16ba5;
+  color: #ffe6fa;
 }
 .ceramic-app.dark .contact {
   background: linear-gradient(120deg, #23272f 80%, #3a3d4d 100%) !important;
   color: #ffe9b0;
   box-shadow: 0 4px 24px #23272f55;
   border: 2.5px solid #ffd36b;
-  box-shadow: 0 8px 36px 0 #000a  , 0 2px 0 #ffd36bcc;
 }
 .ceramic-app.dark .contact h2 {
   color: #ffd36b;
@@ -120,15 +67,6 @@
 }
 .ceramic-app.dark .contact-icon {
   color: #ffd36b;
-}
-.contact::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  pointer-events: none;
-  box-shadow: 0 1.5px 16px 0 #ffd36b33 inset;
-  opacity: 0.18;
 }
 @media (max-width: 600px) {
   .about, .contact {

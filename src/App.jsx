@@ -84,7 +84,7 @@ function AppContent() {
 
   return (
     <div className={"ceramic-app" + (darkMode ? " dark" : "") }>
-      <Header image={LogoImg}>
+      <Header image={LogoImg} className="header-wave">
         <button
           className="dark-toggle-btn"
           onClick={() => setDarkMode(dm => !dm)}
@@ -93,17 +93,32 @@ function AppContent() {
           {darkMode ? '🌙' : '☀️'}
         </button>
       </Header>
-      <SlideShow />
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      {loading ? <Skeleton /> : <ProductList products={filteredProducts} onSelect={setSelectedProduct} />}
-      {selectedProduct && (
-        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-      )}
-      <About id="about"/>
-      <Contact id="contact"/>
+      <section className="hero-section">
+        <SlideShow />
+        {/* Họa tiết hoa, mây, bướm trang trí */}
+        <div className="hero-decor decor-flower" />
+        <div className="hero-decor decor-star" />
+        <div className="hero-decor decor-butterfly" />
+      </section>
+      <section className="product-section">
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <h2 className="product-title">
+          <span className="product-title-bg">top sellers</span>
+        </h2>
+        {loading ? <Skeleton /> : <ProductList products={filteredProducts} onSelect={setSelectedProduct} />}
+        {selectedProduct && (
+          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+        )}
+      </section>
+      <section className="about-section">
+        <About id="about"/>
+      </section>
+      <section className="contact-section">
+        <Contact id="contact"/>
+      </section>
       <BackToTop show={showBackToTop} onClick={scrollToTop} />
       <FAB />
-      <Footer />
+      <Footer className="footer-wave" />
     </div>
   );
 }
