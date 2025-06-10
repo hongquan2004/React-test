@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './SlideShow.css';
+import ohnoImg from '../assets/img/6291649_cover_ohno.jpg';
+import memeImg from '../assets/img/anh-27-meme-dang-yeu-didongmy.jpg';
+import noThanksImg from '../assets/img/no-thanks-meme.jpeg';
 
 const slides = [
   {
-    img: '/src/assets/img/6291649_cover_ohno.jpg',
+    img: ohnoImg,
     caption: 'Gốm nghệ thuật thủ công, tinh xảo từng chi tiết.'
   },
   {
-    img: '/src/assets/img/anh-27-meme-dang-yeu-didongmy.jpg',
+    img: memeImg,
     caption: 'Sản phẩm độc bản, mang đậm nét truyền thống.'
   },
   {
-    img: '/src/assets/img/no-thanks-meme.jpeg',
+    img: noThanksImg,
     caption: 'Trang trí không gian sống thêm sang trọng.'
   }
 ];
