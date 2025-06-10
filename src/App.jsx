@@ -11,7 +11,7 @@ import BackToTop from './components/BackToTop.jsx';
 import FAB from './components/FAB.jsx';
 import Skeleton from './components/Skeleton.jsx';
 import './App.css';
-import LogoImg from './assets/img/logo.png';
+import LogoImg from './assets/img/Logo.png';
 import item1 from './assets/img/item/item1.jpg';
 import item2 from './assets/img/item/item2.jpg';
 import item3 from './assets/img/item/item3.jpg';
