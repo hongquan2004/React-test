@@ -4,7 +4,7 @@ import './FAB.css';
 const FAB = () => (
   <div className="fab-container">
     <a
-      href="https://www.instagram.com/"
+      href="https://www.instagram.com/luckyduck.pottery/"
       className="fab fab-instagram"
       target="_blank"
       rel="noopener noreferrer"
@@ -13,7 +13,7 @@ const FAB = () => (
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
     </a>
     <a
-      href="https://www.facebook.com/"
+      href="https://www.facebook.com/profile.php?id=61553199217671"
       className="fab fab-facebook"
       target="_blank"
       rel="noopener noreferrer"
