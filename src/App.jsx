@@ -37,6 +37,7 @@ function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +54,11 @@ function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleAddToCart = () => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 1800);
   };
 
   return (
@@ -105,9 +111,12 @@ function App() {
             <h2>{selectedProduct.name}</h2>
             <p>{selectedProduct.description}</p>
             <div className="modal-price">{selectedProduct.price}</div>
-            <button className="ceramic-btn">Thêm vào giỏ hàng</button>
+            <button className="ceramic-btn" onClick={handleAddToCart}>Thêm vào giỏ hàng</button>
           </div>
         </div>
+      )}
+      {showToast && (
+        <div className="toast-message">Đã thêm vào giỏ hàng!</div>
       )}
 
       <section id="about" className="ceramic-about">
