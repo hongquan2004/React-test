@@ -1,43 +1,64 @@
-import './App.css'
-import image from './assets/img/76fcc5ee-e2e5-4fe7-bd5a-088156822456.gif'
-import { useState, useEffect } from 'react'
-
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header.jsx';
+import SlideShow from './components/SlideShow.jsx';
+import SearchBar from './components/SearchBar.jsx';
+import ProductList from './components/ProductList.jsx';
+import ProductModal from './components/ProductModal.jsx';
+import About from './components/About.jsx';
+import Contact from './components/Contact.jsx';
+import Footer from './components/Footer.jsx';
+import BackToTop from './components/BackToTop.jsx';
+import FAB from './components/FAB.jsx';
+import Skeleton from './components/Skeleton.jsx';
+import './App.css';
+import LogoImg from './assets/img/logo.png';
+import item1 from './assets/img/item/item1.jpg';
+import item2 from './assets/img/item/item2.jpg';
+import item3 from './assets/img/item/item3.jpg';
+import item4 from './assets/img/item/item4.jpg';
 const products = [
   {
     id: 1,
     name: 'Bình gốm nghệ thuật',
     description: 'Bình gốm thủ công, họa tiết tinh xảo, phù hợp trang trí phòng khách.',
     price: '450.000đ',
-    image: image
+    image: item1
   },
   {
     id: 2,
     name: 'Chén trà gốm sứ',
     description: 'Bộ chén trà gốm sứ cao cấp, men rạn cổ điển.',
     price: '320.000đ',
-    image: image
+    image: item2
   },
   {
     id: 3,
     name: 'Lọ hoa gốm',
     description: 'Lọ hoa gốm dáng cao, màu men xanh ngọc sang trọng.',
     price: '280.000đ',
-    image: image
+    image: item3
   },
   {
     id: 4,
     name: 'Lọ hoa gốm',
     description: 'Lọ hoa gốm dáng cao, màu men xanh ngọc sang trọng.',
     price: '280.000đ',
-    image: image
+    image: item4
   }
 ];
 
-function App() {
+function AppContent() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [showToast, setShowToast] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +67,11 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', darkMode);
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
 
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -56,95 +82,36 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleAddToCart = () => {
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 1800);
-  };
-
   return (
-    <div className="ceramic-app">
-      <header className="ceramic-header">
-        <img src={image} alt="Logo" className="ceramic-logo" />
-        <h1>Cửa hàng Bé Nhi</h1>
-        <p>Khám phá các sản phẩm gốm thủ công tinh xảo</p>
-        <nav className="ceramic-nav">
-          <a href="#products">Sản phẩm</a>
-          <a href="#about">Giới thiệu</a>
-          <a href="#contact">Liên hệ</a>
-        </nav>
-      </header>
-
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Tìm kiếm sản phẩm..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-input"
-        />
-      </div>
-
-      <section id="products" className="ceramic-products">
-        {filteredProducts.map(product => (
-          <div className="ceramic-card" key={product.id}>
-            <div className="ceramic-card-inner">
-              <img src={product.image} alt={product.name} className="ceramic-img" />
-              <h2 className="ceramic-title">{product.name}</h2>
-              <p className="ceramic-desc">{product.description}</p>
-              <div className="ceramic-price">{product.price}</div>
-              <button 
-                className="ceramic-btn"
-                onClick={() => setSelectedProduct(product)}
-              >
-                Xem chi tiết
-              </button>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {selectedProduct && (
-        <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setSelectedProduct(null)}>×</button>
-            <img src={selectedProduct.image} alt={selectedProduct.name} className="modal-img" />
-            <h2>{selectedProduct.name}</h2>
-            <p>{selectedProduct.description}</p>
-            <div className="modal-price">{selectedProduct.price}</div>
-            <button className="ceramic-btn" onClick={handleAddToCart}>Thêm vào giỏ hàng</button>
-          </div>
-        </div>
-      )}
-      {showToast && (
-        <div className="toast-message">Đã thêm vào giỏ hàng!</div>
-      )}
-
-      <section id="about" className="ceramic-about">
-        <h2>Về chúng tôi</h2>
-        <p>Gốm Nghệ Thuật là cửa hàng chuyên cung cấp các sản phẩm gốm thủ công cao cấp, mang đậm nét văn hóa truyền thống Việt Nam, phù hợp trang trí và làm quà tặng ý nghĩa.</p>
-      </section>
-
-      <section id="contact" className="ceramic-contact">
-        <h2>Liên hệ</h2>
-        <p>Email: gomnghethuat@example.com | ĐT: 0123 456 789</p>
-        <div className="social-links">
-          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" className="social-icon" title="Facebook">📘 Facebook</a>
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="social-icon" title="Instagram">📸 Instagram</a>
-          <a href="https://tiktok.com/" target="_blank" rel="noopener noreferrer" className="social-icon" title="TikTok">🎵 TikTok</a>
-        </div>
-      </section>
-
-      {showBackToTop && (
-        <button className="back-to-top" onClick={scrollToTop}>
-          ↑
+    <div className={"ceramic-app" + (darkMode ? " dark" : "") }>
+      <Header image={LogoImg}>
+        <button
+          className="dark-toggle-btn"
+          onClick={() => setDarkMode(dm => !dm)}
+          title={darkMode ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối'}
+        >
+          {darkMode ? '🌙' : '☀️'}
         </button>
+      </Header>
+      <SlideShow />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      {loading ? <Skeleton /> : <ProductList products={filteredProducts} onSelect={setSelectedProduct} />}
+      {selectedProduct && (
+        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
       )}
-
-      <footer className="ceramic-footer">
-        © {new Date().getFullYear()} Gốm Nghệ Thuật
-      </footer>
+      <About id="about"/>
+      <Contact id="contact"/>
+      <BackToTop show={showBackToTop} onClick={scrollToTop} />
+      <FAB />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <AppContent />
+  );
+}
+
+export default App;

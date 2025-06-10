@@ -1,0 +1,114 @@
+.about, .about h2, .about p, .about-list {
+  color: var(--about-text, #222);
+}
+.about {
+  background: var(--about-bg, #fff);
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+  border: 2.5px solid #ffd36b;
+  box-shadow: 0 6px 32px 0 #23272f55, 0 1.5px 0 #ffe9b0cc;
+  position: relative;
+  overflow: hidden;
+}
+.about h2 {
+  color: var(--about-title, #b77b3b);
+  margin-bottom: 1rem;
+}
+.about-list {
+  margin-top: 1.2rem;
+  padding-left: 1.2rem;
+}
+.about-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.ceramic-app.dark .about {
+  background: linear-gradient(120deg, #23272f 80%, #3a3d4d 100%) !important;
+  color: #ffe9b0;
+  box-shadow: 0 4px 24px #23272f55;
+  border: 2.5px solid #ffd36b;
+  box-shadow: 0 8px 36px 0 #000a  , 0 2px 0 #ffd36bcc;
+}
+.ceramic-app.dark .about h2 {
+  color: #ffd36b;
+}
+.ceramic-app.dark .about-list li {
+  color: #ffe9b0;
+}
+.ceramic-app.dark .about p {
+  color: #ffe9b0;
+}
+.about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  pointer-events: none;
+  box-shadow: 0 1.5px 16px 0 #ffd36b33 inset;
+  opacity: 0.18;
+}
+
+.contact, .contact h2, .contact-list, .contact-item, .contact-icon {
+  color: var(--contact-text, #222);
+}
+.contact {
+  background: var(--contact-bg, #fff);
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+  border: 2.5px solid #ffd36b;
+  box-shadow: 0 6px 32px 0 #23272f55, 0 1.5px 0 #ffe9b0cc;
+  position: relative;
+  overflow: hidden;
+}
+.contact h2 {
+  color: var(--contact-title, #b77b3b);
+  margin-bottom: 1rem;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.1rem;
+}
+.contact-icon {
+  font-size: 1.5rem;
+}
+.ceramic-app.dark .contact {
+  background: linear-gradient(120deg, #23272f 80%, #3a3d4d 100%) !important;
+  color: #ffe9b0;
+  box-shadow: 0 4px 24px #23272f55;
+  border: 2.5px solid #ffd36b;
+  box-shadow: 0 8px 36px 0 #000a  , 0 2px 0 #ffd36bcc;
+}
+.ceramic-app.dark .contact h2 {
+  color: #ffd36b;
+}
+.ceramic-app.dark .contact-item {
+  color: #ffe9b0;
+}
+.ceramic-app.dark .contact a {
+  color: #ffd36b;
+}
+.ceramic-app.dark .contact-icon {
+  color: #ffd36b;
+}
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  pointer-events: none;
+  box-shadow: 0 1.5px 16px 0 #ffd36b33 inset;
+  opacity: 0.18;
+}
