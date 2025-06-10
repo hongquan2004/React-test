@@ -172,6 +172,23 @@ body, html, #root, .ceramic-app {
   z-index: 2;
   font-family: 'Quicksand', sans-serif;
 }
+.ceramic-price::before {
+  content: '💰';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1em;
+  filter: none;
+  opacity: 0.92;
+  z-index: 3;
+}
+@media (max-width: 600px) {
+  .ceramic-price::before {
+    left: 7px;
+    font-size: 1.1em;
+  }
+}
 .ceramic-card:hover .ceramic-price {
   background: linear-gradient(90deg, #a685e2 60%, #d16ba5 100%);
   color: #fffbe6;
@@ -726,8 +743,11 @@ html {
 }
 
 body.dark-mode, .ceramic-app.dark {
-  background: linear-gradient(120deg, #23272f 60%, #3a3d4d 100%) !important;
+  background: linear-gradient(120deg, #3a2c4d 60%, #4e3a65 100%) !important;
   color: #e0c3fc;
+}
+body.dark-mode #root, .ceramic-app.dark #root {
+  background: linear-gradient(120deg, #3a2c4d 60%, #4e3a65 100%) !important;
 }
 .ceramic-app.dark .ceramic-header,
 .ceramic-app.dark .ceramic-footer,
@@ -736,10 +756,10 @@ body.dark-mode, .ceramic-app.dark {
 .ceramic-app.dark .ceramic-contact,
 .ceramic-app.dark .modal-content,
 .ceramic-app.dark .search-container {
-  background: linear-gradient(120deg, #23272f 80%, #3a3d4d 100%) !important;
+  background: linear-gradient(120deg, #4e3a65 80%, #6e4c8f 100%) !important;
   color: #e0c3fc;
-  border-color: #b7d3c4;
-  box-shadow: 0 4px 24px #23272f55;
+  border-color: #d6b4e7;
+  box-shadow: 0 4px 24px #2d223a55;
 }
 .ceramic-app.dark .ceramic-title,
 .ceramic-app.dark .ceramic-desc,
@@ -747,40 +767,48 @@ body.dark-mode, .ceramic-app.dark {
 .ceramic-app.dark .modal-price,
 .ceramic-app.dark .ceramic-header h1,
 .ceramic-app.dark .ceramic-header p {
-  color: #e0c3fc !important;
-  text-shadow: none;
+  color: #f7e6fa !important;
+  text-shadow: 0 2px 8px #4e3a6533;
+}
+.ceramic-app.dark .ceramic-price {
+  background: linear-gradient(90deg, #d6b4e7 60%, #a685e2 100%) !important;
+  border-color: #d6b4e7;
+  color: #4e3a65 !important;
+}
+.ceramic-app.dark .ceramic-price::before {
+  color: #a685e2;
 }
 .ceramic-app.dark .ceramic-btn {
-  background: linear-gradient(90deg, #b7d3c4 0%, #e0c3fc 100%);
-  color: #23272f;
+  background: linear-gradient(90deg, #d6b4e7 0%, #a685e2 100%);
+  color: #4e3a65;
   border-color: #e0c3fc;
 }
 .ceramic-app.dark .ceramic-btn:hover {
-  background: linear-gradient(90deg, #e0c3fc 0%, #b7d3c4 100%);
-  color: #b7d3c4;
+  background: linear-gradient(90deg, #a685e2 0%, #d6b4e7 100%);
+  color: #fffbe6;
 }
 .ceramic-app.dark .back-to-top {
-  background: linear-gradient(120deg, #23272f 60%, #3a3d4d 100%);
+  background: linear-gradient(120deg, #4e3a65 60%, #6e4c8f 100%);
   color: #e0c3fc;
-  border-color: #b7d3c4;
+  border-color: #d6b4e7;
 }
 .ceramic-app.dark .social-icon {
-  background: #23272f99;
+  background: #4e3a6599;
   color: #e0c3fc;
 }
 .ceramic-app.dark .social-icon:hover {
-  background: linear-gradient(90deg, #b7d3c4 0%, #e0c3fc 100%);
-  color: #23272f;
+  background: linear-gradient(90deg, #d6b4e7 0%, #a685e2 100%);
+  color: #4e3a65;
 }
 .ceramic-app.dark .slide-caption {
-  background: linear-gradient(0deg, #23272fcc 80%, #23272f00 100%);
+  background: linear-gradient(0deg, #4e3a65cc 80%, #4e3a6500 100%);
   color: #e0c3fc;
 }
 .ceramic-app.dark .slide-dots .dot {
-  background: #b7d3c4;
+  background: #d6b4e7;
 }
 .ceramic-app.dark .slide-dots .dot.active {
-  background: #e0c3fc;
+  background: #a685e2;
 }
 
 .footer {
